@@ -4,7 +4,7 @@ def call(String image_name){
             docker run --rm \
               --entrypoint sh \
               ${image_name} \
-              -c "npm ci && npm test"
+              -c "npm test"
         """
       } catch (err) {
           currentBuild.result = 'FAILURE'
