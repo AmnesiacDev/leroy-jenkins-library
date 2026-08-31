@@ -3,7 +3,7 @@ def call(String image_name){
         sh """
             docker run --rm \
               --entrypoint sh \
-              ${IMAGE_NAME} \
+              ${image_name} \
               -c "npm ci && npm test"
         """
       } catch (err) {
