@@ -4,4 +4,5 @@ def call(String job_name){
     if (result.result != 'SUCCESS') {
         unstable("Backend downstream pipeline did not succeed beepboop: ${result.result}")
     }
+    return result
 }
