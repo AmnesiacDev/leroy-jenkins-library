@@ -1,9 +1,10 @@
-def call(String image_name){
+def call(String image_name, String command = 'echo Success'){
   try {
         sh """
             docker run --rm \
               --entrypoint sh \
-              ${image_name}
+              ${image_name} \
+              -c "${command}"
         """
       } catch (err) {
           currentBuild.result = 'FAILURE'
