@@ -10,7 +10,7 @@ def call(String job_name, String build_num, String has_update) {
             ),
             booleanParam(
                 name: 'START_TEST',
-                value: has_update.toBoolea()
+                value: has_update.toBoolean()
             )
         ]
     )
