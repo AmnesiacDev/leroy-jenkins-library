@@ -1,6 +1,7 @@
 def call(String repo_dir, String test_dir, String repo_url, String branch = 'main') {
 
-    sh """
+    def result=sh( 
+        script: """
         REPO_DIR="${repo_dir}"
         TEST_DIR="${test_dir}"
         REPO_URL="${repo_url}"
@@ -49,7 +50,8 @@ def call(String repo_dir, String test_dir, String repo_url, String branch = 'mai
                 echo "Repository is already up to date."
             fi
         fi
-    """
+    """,
+    returnStdout: true
 }.trim()
     return result.endsWith('UPDATED')
 }
