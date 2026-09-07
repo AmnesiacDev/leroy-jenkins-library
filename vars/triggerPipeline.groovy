@@ -1,4 +1,4 @@
-def call(String job_name, String build_num, String has_update) {
+def call(String job_name, String build_num, Boolean has_update) {
     def result = build(
         job: job_name,
         wait: true,
@@ -10,7 +10,7 @@ def call(String job_name, String build_num, String has_update) {
             ),
             booleanParam(
                 name: 'START_TEST',
-                value: has_update.toBoolean()
+                value: has_update
             )
         ]
     )
