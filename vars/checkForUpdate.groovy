@@ -14,6 +14,8 @@ def call(String repo_dir, String test_dir, String repo_url, String branch = 'mai
                 --branch "\$BRANCH" \
                 "\$REPO_URL" \
                 "\$REPO_DIR"
+
+            rm -rf "\$TEST_DIR"
             cp -r "\$REPO_DIR/." "\$TEST_DIR"
 
         else
@@ -48,4 +50,6 @@ def call(String repo_dir, String test_dir, String repo_url, String branch = 'mai
             fi
         fi
     """
+}.trim()
+    return result.endsWith('UPDATED')
 }
