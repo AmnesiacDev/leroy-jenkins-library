@@ -2,7 +2,7 @@ def call(String service_name, String env_file = null) {
     try {
         if (env_file?.trim()) {
             withEnv(["ENV_FILE=${env_file}"]) {
-                sh "docker compose up -d '${service_name}'"
+                sh "docker compose up --env-file '${env_file}' -d '${service_name}'"
             }
         } else {
             sh "docker compose up -d '${service_name}'"
